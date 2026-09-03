@@ -62,16 +62,17 @@ export default function ContractCreationSvg() {
 
       <path d="M570,208 L570,244" fill="none" stroke="#8A8A9E" strokeWidth="2.1" strokeLinecap="round" strokeLinejoin="round" markerEnd="url(#ah1)"/>
 
-      {/* Step 3: Client sends a contract */}
+      {/* Step 3: Client offers a contract */}
       <g>
         <rect x="425.0" y="246" width="290" height="88" rx="13" fill="#0F0F14" stroke="rgba(255,255,255,.13)"/>
         <rect x="432.0" y="258" width="3.5" height="64" rx="2" fill="#C48FD9"/>
-        <text className="nt" x="451.0" y="276.5">Client sends a contract</text>
+        <text className="nt" x="451.0" y="276.5">Client offers a contract</text>
         <text className="nd" x="451.0" y="299.5">Built from milestones, with reference</text>
         <text className="nd" x="451.0" y="314.5">files attached for the designer.</text>
         <circle cx="425.0" cy="290.0" r="13" fill="#C48FD9" stroke="#000000" strokeWidth="3"/>
         <text className="num" x="425.0" y="294.3" textAnchor="middle">3</text>
       </g>
+
 
       <g>
         <rect x="778" y="232" width="312" height="116" rx="12" fill="rgba(255,255,255,.035)" stroke="rgba(255,255,255,.20)" strokeDasharray="5 4"/>

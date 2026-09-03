@@ -39,16 +39,17 @@ export default function PayoutZones() {
           </p>
         </div>
 
-        {/* Zone 3: Closes itself */}
+        {/* Zone 3: End Contract & Rating */}
         <div className="p-6 rounded-2xl bg-gradient-to-b from-emerald-500/20 via-emerald-500/5 to-transparent border border-emerald-500/20 hover:brightness-110 transition-all">
-          <div className="text-xs font-semibold text-[#8BEBBE]">Closes itself</div>
+          <div className="text-xs font-semibold text-[#8BEBBE]">End Contract &amp; Rating</div>
           <h3 className="font-bricolage font-bold text-[17.5px] text-white mt-2 mb-2">
             After completion
           </h3>
           <p className="text-xs sm:text-[13.4px] text-tx2 leading-relaxed">
-            The final milestone is approved and paid. The contract closes on its own with no action from either side.
+            The final milestone is approved and paid. Either party ends the contract and can leave a rating and review to officially close the engagement.
           </p>
         </div>
+
       </div>
     </section>
   );

@@ -27,4 +27,7 @@ export interface MilestoneLedgerResult {
   gv: number;
   /** Cashfree share (gateway in + payout out) */
   cf: number;
+  /** Whether designer is GST registered */
+  isGstRegistered?: boolean;
 }
+

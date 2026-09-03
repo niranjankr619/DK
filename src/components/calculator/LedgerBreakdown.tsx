@@ -32,8 +32,12 @@ export default function LedgerBreakdown({ ledger }: LedgerBreakdownProps) {
             <i className="not-italic text-tx2 tabular-nums">{formatINR(ledger.M)}</i>
           </div>
           <div className="flex justify-between gap-3 py-1">
-            <span>GST at 18% on the milestone</span>
-            <i className="not-italic text-tx2 tabular-nums">{formatINR(ledger.fgst)}</i>
+            <span>
+              {ledger.isGstRegistered ? "GST at 18% on the milestone" : "GST on milestone (Non-GST Designer)"}
+            </span>
+            <i className="not-italic text-tx2 tabular-nums">
+              {ledger.isGstRegistered ? formatINR(ledger.fgst) : "₹0.00"}
+            </i>
           </div>
           <div className="flex justify-between gap-3 py-1">
             <span>Client commission at 5%</span>
@@ -65,9 +69,12 @@ export default function LedgerBreakdown({ ledger }: LedgerBreakdownProps) {
               {formatINR(ledger.des)}
             </div>
             <div className="text-[11.9px] text-tx3 sm:col-span-3 -mt-1">
-              {formatINR(ledger.M)} fee + 18% GST ({formatINR(ledger.fgst)}) − 7% commission ({formatINR(ledger.dc)}) − 18% GST on fee ({formatINR(ledger.dcg)})
+              {ledger.isGstRegistered
+                ? `${formatINR(ledger.M)} fee + 18% GST (${formatINR(ledger.fgst)}) − 7% commission (${formatINR(ledger.dc)}) − 18% GST on fee (${formatINR(ledger.dcg)})`
+                : `${formatINR(ledger.M)} fee (No GST) − 7% commission (${formatINR(ledger.dc)}) − 18% GST on fee (${formatINR(ledger.dcg)})`}
             </div>
           </div>
+
 
           {/* DezinersKnot row */}
           <div className="grid grid-cols-1 sm:grid-cols-[1fr_auto_auto] gap-x-4 gap-y-1 items-baseline p-3 -mx-3 rounded-xl bg-gradient-to-r from-peri/15 to-transparent">

@@ -20,10 +20,13 @@ export function round2(n: number): number {
 /**
  * Pure calculation function for milestone ledger accounting
  */
-export function calculateMilestoneLedger(M: number): MilestoneLedgerResult {
+export function calculateMilestoneLedger(
+  M: number,
+  isGstRegistered: boolean = true
+): MilestoneLedgerResult {
   const G = 0.18; // 18% GST
 
-  const fgst = round2(M * G);
+  const fgst = isGstRegistered ? round2(M * G) : 0;
   const cc = round2(M * 0.05); // 5% client commission
   const ccg = round2(cc * G);
   const sub = M + fgst + cc + ccg;
@@ -59,12 +62,16 @@ export function calculateMilestoneLedger(M: number): MilestoneLedgerResult {
     dcg,
     pf,
     pfTot,
+    isGstRegistered,
   };
 }
 
-/**
- * Hook providing reactive milestone ledger computation
- */
-export function useMilestoneLedger(amount: number): MilestoneLedgerResult {
-  return useMemo(() => calculateMilestoneLedger(amount), [amount]);
+export function useMilestoneLedger(
+  M: number,
+  isGstRegistered: boolean = true
+): MilestoneLedgerResult {
+  return useMemo(
+    () => calculateMilestoneLedger(M, isGstRegistered),
+    [M, isGstRegistered]
+  );
 }
