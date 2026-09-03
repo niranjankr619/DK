@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --orchid: #C48FD9;
+  --peri: #8E9AF0;
+  --cyan: #22B6E0;
+  --amber: #F5B95C;
+  --rose: #E5709B;
+  --panel: #111117;
+  --line: rgba(255, 255, 255, 0.11);
+  --line2: rgba(255, 255, 255, 0.18);
+  --tx: #EDEDF2;
+  --tx2: #9A9AAB;
+  --tx3: #6F6F80;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: #000;
+  color: var(--tx);
+  line-height: 1.55;
+  font-family: var(--font-instrument), system-ui, -apple-system, sans-serif;
+}
+
+::selection {
+  background: var(--peri);
+  color: #000;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #08080C;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+/* Glassmorphism plate background */
+.plate-gradient {
+  background: linear-gradient(180deg, #141419, #0A0A0E);
+}
+
+.brand-gradient-text {
+  background: linear-gradient(118deg, var(--orchid) 2%, var(--peri) 46%, var(--cyan) 92%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.brand-gradient-bg {
+  background: linear-gradient(130deg, var(--orchid), var(--peri) 55%, var(--cyan));
+}
+
+/* Details animation */
+details[open] .details-content {
+  animation: drop 0.34s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes drop {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
