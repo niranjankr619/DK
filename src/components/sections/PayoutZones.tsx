@@ -19,14 +19,15 @@ export default function PayoutZones() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {/* Zone 1: Exit open */}
         <div className="p-6 rounded-2xl bg-gradient-to-b from-emerald-500/20 via-emerald-500/5 to-transparent border border-emerald-500/20 hover:brightness-110 transition-all">
-          <div className="text-xs font-semibold text-[#8BEBBE]">Exit open</div>
+          <div className="text-xs font-semibold text-[#8BEBBE]">Exit open &amp; Rating</div>
           <h3 className="font-bricolage font-bold text-[17.5px] text-white mt-2 mb-2">
             Before activation
           </h3>
           <p className="text-xs sm:text-[13.4px] text-tx2 leading-relaxed">
-            No milestone has been funded, so no money has moved. Either side walks away and nothing is owed.
+            No milestone has been funded, so no money has moved. Either side can end the contract with nothing owed and leave a rating.
           </p>
         </div>
+
 
         {/* Zone 2: No exit */}
         <div className="p-6 rounded-2xl bg-gradient-to-b from-rose/25 via-rose/5 to-transparent border border-rose/25 hover:brightness-110 transition-all">
