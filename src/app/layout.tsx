@@ -22,6 +22,11 @@ export const metadata: Metadata = {
   description:
     "Interactive financial and operational breakdown of milestone escrow, Cashfree payment rails, commissions, and unit economics for DezinersKnot.",
   keywords: ["DezinersKnot", "Escrow", "Design Milestone", "Cashfree", "Design Marketplace", "Unit Economics"],
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
   openGraph: {
     title: "DezinersKnot — How a Milestone Gets Paid",
     description: "Transparent milestone payments, automated compliance, and 91% net designer payout.",
