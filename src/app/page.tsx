@@ -1,4 +1,5 @@
 import React from "react";
+import TabSessionGuard from "@/components/auth/TabSessionGuard";
 import Masthead from "@/components/layout/Masthead";
 import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/hero/HeroSection";
@@ -16,7 +17,8 @@ import ScrollReveal from "@/components/motion/ScrollReveal";
 
 export default function Home() {
   return (
-    <main className="space-y-12 md:space-y-16">
+    <TabSessionGuard>
+      <main className="space-y-12 md:space-y-16">
       {/* Brand Masthead */}
       <ScrollReveal direction="none" duration={0.5}>
         <Masthead />
@@ -136,5 +138,6 @@ export default function Home() {
       {/* Footer */}
       <Footer />
     </main>
+  </TabSessionGuard>
   );
 }

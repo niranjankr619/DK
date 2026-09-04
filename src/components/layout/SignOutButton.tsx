@@ -12,6 +12,7 @@ export default function SignOutButton() {
     if (isLoggingOut) return;
     setIsLoggingOut(true);
     try {
+      sessionStorage.removeItem('dk_tab_unlocked');
       await fetch('/api/auth/logout', { method: 'POST' });
       router.push('/login');
       router.refresh();

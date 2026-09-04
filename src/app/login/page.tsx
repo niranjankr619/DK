@@ -36,6 +36,9 @@ export default function LoginPage() {
       }
 
       setIsSuccess(true);
+      // Mark this specific browser tab as unlocked
+      sessionStorage.setItem('dk_tab_unlocked', 'true');
+
       // Seamlessly redirect to the protected dashboard
       setTimeout(() => {
         router.push('/');
