@@ -1,8 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { ShieldCheck, Lock, ArrowRight, Sparkles, KeyRound, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Sparkles, KeyRound, AlertCircle, CheckCircle2 } from 'lucide-react';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -55,19 +56,18 @@ export default function LoginPage() {
 
       {/* Main Login Card */}
       <div className="w-full max-w-md relative z-10">
-        {/* Top Badge */}
-        <div className="flex justify-center mb-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs text-gray-300 backdrop-blur-md">
-            <ShieldCheck className="w-3.5 h-3.5 text-[#818cf8]" />
-            <span className="font-medium tracking-wide">DezinersKnot Security Vault</span>
-          </div>
-        </div>
-
         {/* Card */}
         <div className="p-8 rounded-3xl bg-[#0F1117]/85 border border-white/10 shadow-2xl backdrop-blur-xl relative">
           <div className="text-center mb-8">
-            <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-[#6366f1]/20 via-[#c084fc]/20 to-[#22d3ee]/20 border border-white/10 mx-auto flex items-center justify-center mb-4">
-              <Lock className="w-6 h-6 text-[#818cf8]" />
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-[#6366f1]/20 via-[#c084fc]/20 to-[#22d3ee]/20 border border-white/10 mx-auto flex items-center justify-center mb-4 p-2.5">
+              <Image
+                src="/logo.png"
+                alt="DezinersKnot"
+                width={40}
+                height={40}
+                className="w-full h-full object-contain"
+                priority
+              />
             </div>
             <h1 className="text-2xl font-bold tracking-tight text-white mb-2">
               Authorized Access
@@ -93,7 +93,7 @@ export default function LoginPage() {
                     setPasscode(e.target.value);
                     if (error) setError(null);
                   }}
-                  placeholder="Enter passcode (e.g. DK2026)"
+                  placeholder="Enter passcode"
                   autoFocus
                   required
                   disabled={isLoading || isSuccess}
@@ -148,11 +148,6 @@ export default function LoginPage() {
               )}
             </button>
           </form>
-
-          {/* Footer note */}
-          <div className="mt-6 pt-6 border-t border-white/5 text-center text-[11px] text-gray-500">
-            Confidential &amp; Proprietary System &bull; DezinersKnot Pvt Ltd
-          </div>
         </div>
       </div>
     </div>

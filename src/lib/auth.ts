@@ -13,7 +13,7 @@ function getSecretKey(): string {
 }
 
 function getExpectedPasscode(): string {
-  return process.env.APP_ACCESS_PASSCODE || 'DK2026';
+  return process.env.APP_ACCESS_PASSCODE || 'Welcome@Av7';
 }
 
 /**
