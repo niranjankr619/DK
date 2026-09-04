@@ -1,3 +1,5 @@
+'use client';
+
 import React from "react";
 import TabSessionGuard from "@/components/auth/TabSessionGuard";
 import Masthead from "@/components/layout/Masthead";
