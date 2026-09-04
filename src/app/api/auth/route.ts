@@ -36,14 +36,13 @@ export async function POST(request: NextRequest) {
       message: 'Access granted. Welcome to DezinersKnot.',
     });
 
-    // Set secure, HttpOnly session cookie
+    // Set secure, HttpOnly browser session cookie (cleared when browser/tab closes)
     response.cookies.set({
       name: SESSION_COOKIE_NAME,
       value: token,
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',
-      maxAge: SESSION_MAX_AGE,
       path: '/',
     });
 
