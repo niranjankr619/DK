@@ -8,17 +8,31 @@ export default function TabSessionGuard({ children }: { children: React.ReactNod
   const [isUnlocked, setIsUnlocked] = useState(false);
 
   useEffect(() => {
-    // Check if this specific browser tab has been unlocked in sessionStorage
+    // 1. Check if active unlock token exists in memory/sessionStorage
     const tabUnlocked = sessionStorage.getItem('dk_tab_unlocked');
 
     if (tabUnlocked !== 'true') {
-      // Tab is new/reopened without active unlock -> force logout & redirect to login
+      // Not unlocked -> force logout & redirect to login
       fetch('/api/auth/logout', { method: 'POST' }).finally(() => {
         router.replace('/login');
       });
-    } else {
-      setIsUnlocked(true);
+      return;
     }
+
+    setIsUnlocked(true);
+
+    // 2. Clear session immediately when page is reloaded or unloaded (F5 / Refresh / Tab Close)
+    const handleUnload = () => {
+      sessionStorage.removeItem('dk_tab_unlocked');
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon('/api/auth/logout');
+      }
+    };
+
+    window.addEventListener('beforeunload', handleUnload);
+    return () => {
+      window.removeEventListener('beforeunload', handleUnload);
+    };
   }, [router]);
 
   if (!isUnlocked) {
